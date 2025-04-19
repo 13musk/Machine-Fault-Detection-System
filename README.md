@@ -1,43 +1,65 @@
-# Machine-Fault-Detection-System
-# 🔧 Machine Fault Detection System (In Progress)
+# Machine Fault Detection System
 
-A web-based diagnostic tool for rotating machinery using signal decomposition, statistical feature extraction, and Boolean logic to classify machine conditions.
+A web-based application for detecting machine faults using vibration data analysis with Intrinsic Time-scale Decomposition (ITD) and Boolean logic.
 
-> 🎯 Built using Python and Streamlit, this project aims to provide a lightweight, explainable solution for identifying machine faults based on vibration data.
+## Features
 
----
+- Upload vibration data in CSV format
+- Perform ITD decomposition to extract signal components
+- Calculate statistical features for each component
+- Apply Boolean logic for fault detection
+- Interactive visualization of original signal and decomposed components
+- Download analysis results and plots
 
-## 🧠 Project Highlights
+## Installation
 
-- ✅ Signal decomposition using **Intrinsic Time-scale Decomposition (ITD)**
-- ✅ Feature extraction (Mean, Standard Deviation, RMS, etc.)
-- ✅ Boolean logic for fault classification
-- ✅ User-friendly **Streamlit app** with:
-  - 📈 Time-series plots & signal distribution
-  - 🧠 Boolean decision table
-  - 🚨 Fault classification as **Normal / Warning / Faulty**
-  - 📥 CSV & plot downloads
+1. Clone this repository
+2. Create a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
----
+## Usage
 
-## 🛠️ Tech Stack
+1. Start the application:
+   ```bash
+   streamlit run app.py
+   ```
+2. Open your web browser and navigate to the provided URL (typically http://localhost:8501)
+3. Upload a CSV file containing vibration data with two columns:
+   - Time: Time points
+   - Vibration: Vibration amplitude values
 
-- **Python**
-- **Streamlit** (for the web UI)
-- **NumPy / Pandas** (for data processing)
-- **Plotly** (for signal visualization)
-- **Matplotlib / Seaborn** (optional analysis tools)
+## Input Data Format
 
----
+The input CSV file should have the following format:
+```
+Time,Vibration
+0.0,0.1
+0.1,0.15
+0.2,0.12
+...
+```
 
-## ⚙️ How It Works (Flow)
+## Analysis Parameters
 
-```mermaid
-graph TD;
-    A[Upload Vibration CSV] --> B[Apply ITD Decomposition];
-    B --> C[Extract PRC Components];
-    C --> D[Calculate Features];
-    D --> E[Apply Boolean Rules];
-    E --> F[Classify: Normal / Warning / Faulty];
-    F --> G[Display Results + Plots];
-    G --> H[Allow CSV/HTML Downloads];
+- Number of ITD Components: Controls how many components to extract from the signal
+- Mean Threshold: Threshold for mean value to detect faults
+- Standard Deviation Threshold: Threshold for standard deviation to detect faults
+
+## Output
+
+The application provides:
+- Machine condition status (Normal/Warning/Faulty)
+- Statistical features for each component
+- Interactive plots of the original signal and decomposed components
+- Option to download features and plots
+
+## License
+
+MIT License 

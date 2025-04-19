@@ -1,0 +1,8 @@
+Machine Condition: Normal
+
+Feature Values:
+Mean: 0.0453
+Max: 0.0521
+Min: 0.0344
+Standard Deviation: 0.0052
+Variance: 0.0000
